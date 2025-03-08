@@ -5,7 +5,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import "./navbar.css";
-import CreateRepoNav from "./createRepoNav";
+import CreateRepoNav from "./CreateRepoNav";
 
 import { useAuth } from "../authContext";
 import { Link, useNavigate } from "react-router-dom";
