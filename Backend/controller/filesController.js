@@ -8,53 +8,9 @@ import { s3, S3_BUCKET } from "../config/aws-config.js";
 const app = express();
 
 app.use(cors());
+
 dotenv.config();
 
-// // API to List All Files
-// export const getFiles = async (req, res) => {
-//     try {
-//         const params = { Bucket: "mygithubbuccket" };
-//         const data = await s3.listObjectsV2(params).promise();
-//         const fileKeys = data.Contents.map(file => file.Key);
-//         res.json({ files: fileKeys });
-//     } catch (error) {
-//         console.error("Error fetching file list:", error);
-//         res.status(500).json({ error: "Failed to fetch file list" });
-//     }
-// };
-
-// // API to Fetch File Content
-// export const getFileContent = async (req, res) => {
-//     const { fileName } = req.query;
-//     try {
-//         const params = { Bucket: "mygithubbuccket", Key: fileName };
-//         const data = await s3.getObject(params).promise();
-//         const fileContent = data.Body.toString("utf-8");  // Convert buffer to string
-//         res.json({ fileName, content: fileContent });
-//     } catch (error) {
-//         console.error("Error fetching file content:", error);
-//         res.status(500).json({ error: "Failed to fetch file content" });
-//     }
-// };
-
-// export const downloadContent = async (req, res) => {
-//     const { fileKey } = req.query;
-//     const params = {
-//         Bucket: "mygithubbuccket",
-//         Key: fileKey,
-//     };
-
-//     try {
-//         const file = await s3.getObject(params).promise();
-//         res.setHeader("Content-Disposition", `attachment; filename=${fileKey.split('/').pop()}`);
-//         res.send(file.Body);
-//     } catch (error) {
-//         res.status(500).json({ error: "Failed to download file", details: error.message });
-//     }
-// };
-
-
-// Get all files for a specific repository
 export const getRepoFiles = async (req, res) => {
     const { repoId } = req.params;
 

@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { Repository } from "../models/repoModel.js"
-import { Issue } from "../models/issueModel.js";
 
 export const createRepository = async (req, res) => {
     const { owner, name, description, content, visibility, issues } = req.body;
