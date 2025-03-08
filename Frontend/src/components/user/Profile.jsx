@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Box, Typography, Radio, RadioGroup, FormControlLabel, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import axios from "axios";
 import "./profile.css";
 import Navbar from "../../Navbar/Navbar";
 import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
-import HomeIcon from '@mui/icons-material/Home';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import { useAuth } from "../../authContext";
 import HeatMapProfile from "./HeatMap";
 
 const Profile = () => {
-    const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState({ username: "username" });
-    const { setCurrentUser } = useAuth();
-
-    const userId = localStorage.getItem("userId");
 
     useEffect(() => {
         const fetchUserDetails = async () => {
@@ -25,7 +20,7 @@ const Profile = () => {
             if (userId) {
                 try {
                     const response = await axios.get(
-                        `http://localhost:3000/userProfile/${userId}`
+                        `https://vereon.onrender.com/userProfile/${userId}`
                     );
                     setUserDetails(response.data);
                 } catch (err) {
@@ -37,10 +32,6 @@ const Profile = () => {
     }, []);
 
     const [value, setValue] = React.useState('1');
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
 
     return (
         <>
@@ -57,8 +48,6 @@ const Profile = () => {
                                     <div className="name">
                                         <h3>{userDetails.username}</h3>
                                     </div>
-
-                                    {/* <Link to={`http://localhost:5173/userdetails/${userId}`}><button className="follow-btn">See Details</button></Link> */}
                                 </div>
 
                                 <div className="heat-map-section">

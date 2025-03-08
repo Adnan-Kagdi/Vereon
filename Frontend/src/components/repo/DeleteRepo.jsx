@@ -10,7 +10,7 @@ function DeleteRepo() {
 
         const deleteRepo = async () => {
             try {
-                const response = await axios.delete(`http://localhost:3000/repo/delete/${id}`);
+                const response = await axios.delete(`https://vereon.onrender.com/repo/delete/${id}`);
                 console.log(`Repo of _id ${id} are deleted!`);
                 navigate("/");
             } catch (err) {

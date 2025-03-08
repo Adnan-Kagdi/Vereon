@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../authContext";
 
@@ -32,7 +32,7 @@ const Signup = () => {
         try {
             setLoading(true);
 
-            const res = await axios.post("http://localhost:3000/signup", {
+            const res = await axios.post("https://vereon.onrender.com/signup", {
                 username: username,
                 email: email,
                 password: password
@@ -51,7 +51,7 @@ const Signup = () => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('userId');
                 setCurrUser("");
-                window.location.href = 'http://localhost:5173/login';
+                window.location.href = 'https://vereon-1.onrender.com/login';
             }, timeUntilExpiration);
 
             navigate("/");

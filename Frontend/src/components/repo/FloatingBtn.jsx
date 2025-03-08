@@ -18,8 +18,8 @@ export default function FloatingBtn({ id }) {
 
 
   const actions = [
-    { icon: <Link to={`http://localhost:5173/repo/update/${id}`} className='icon-link'><EditIcon /></Link>, name: 'Edit' },
-    { icon: <Link to={`http://localhost:5173/repo/delete/${id}`} className='icon-link'><DeleteIcon /></Link>, name: 'Delete' },
+    { icon: <Link to={`https://vereon-1.onrender.com/repo/update/${id}`} className='icon-link'><EditIcon /></Link>, name: 'Edit' },
+    { icon: <Link to={`https://vereon-1.onrender.com/repo/delete/${id}`} className='icon-link'><DeleteIcon /></Link>, name: 'Delete' },
     { icon: <Link to="/" className='icon-link'><HomeIcon /></Link>, name: 'Home' },
   ];
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Typography, TextField, Select, MenuItem, Radio, RadioGroup, FormControlLabel, Button, FormControl, InputLabel, Checkbox } from "@mui/material";
+import { Box, Typography, Radio, RadioGroup, FormControlLabel, Button, Checkbox } from "@mui/material";
 import Navbar from "../../Navbar/Navbar";
 import { useAuth } from "../../authContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -19,7 +19,6 @@ const CreateRepoForm = () => {
     const [validate, setValidate] = useState(false);
 
     const repoOwner = localStorage.getItem("userId");
-    const { currUser } = useAuth();
 
     const handleVisibility = () => {
         setRepoVisibility(true);
@@ -34,7 +33,7 @@ const CreateRepoForm = () => {
         }
         setLoading(true);
         e.preventDefault();
-        const res = await axios.post("http://localhost:3000/repo/create", {
+        const res = await axios.post("https://vereon.onrender.com/repo/create", {
             name: repoName,
             owner: repoOwner,
             description: repoDiscription,
@@ -52,7 +51,7 @@ const CreateRepoForm = () => {
 
     useEffect(() => {
         const getUser = async () => {
-            const res = await axios.get(`http://localhost:3000/userProfile/${repoOwner}`);
+            const res = await axios.get(`https://vereon.onrender.com/userProfile/${repoOwner}`);
             const username = res.data.username
             setUsername(username)
         }

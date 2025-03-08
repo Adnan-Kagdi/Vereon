@@ -19,7 +19,7 @@ function Dashboard() {
 
         try {
             const fetchRepositories = async () => {
-                const response = await fetch(`http://localhost:3000/repo/user/${userId}`);
+                const response = await fetch(`https://vereon.onrender.com/repo/user/${userId}`);
                 const data = await response.json();
                 console.log(data);
 
@@ -33,7 +33,7 @@ function Dashboard() {
             }
 
             const fetchAllRepositories = async () => {
-                const response = await fetch("http://localhost:3000/repo/all");
+                const response = await fetch("https://vereon.onrender.com/repo/all");
 
                 const data = await response.json();
 

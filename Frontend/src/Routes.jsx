@@ -16,7 +16,6 @@ import EditRepo from "./components/repo/EditRepo";
 import DeleteRepo from "./components/repo/DeleteRepo";
 import ViewFile from "./components/repo/ViewFile";
 import InstDetails from "./components/user/Details";
-import PageNotFound from "./pageNotFound";
 
 export const ProjectRoutes = () => {
     const { currUser, setCurrUser } = useAuth();
@@ -99,13 +98,6 @@ export const ProjectRoutes = () => {
             path: "/repo/delete/:id",
             element: <DeleteRepo />
         },
-    ])
-
-    let pageNotFound = useRoutes([
-        {
-            path: '*/',
-            element: <PageNotFound />
-        }
     ])
 
     return element;

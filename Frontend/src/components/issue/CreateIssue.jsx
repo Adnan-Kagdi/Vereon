@@ -18,7 +18,7 @@ function MyCustomDialog({ open, onClose }) {
     const navigate = useNavigate();
 
     const handleIssueCreation = async () => {
-        const issue = await axios.post("http://localhost:3000/issue/create",
+        const issue = await axios.post("https://vereon.onrender.com/issue/create",
             {
                 title: issueTitle,
                 description: issueDescription

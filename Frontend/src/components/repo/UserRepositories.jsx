@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Navbar from "../../Navbar/Navbar"
 import { Typography, Card, CardContent, Button } from "@mui/material";
 import "./userRepositories.css"
-import { Link } from "react-router-dom";
 
 function UserRepositories() {
     const [userRepo, setUserRepo] = useState([])
@@ -13,7 +12,7 @@ function UserRepositories() {
     useEffect(() => {
         try {
             const getRepo = async () => {
-                const repositories = await fetch(`http://localhost:3000/repo/user/${userId}`);
+                const repositories = await fetch(`https://vereon.onrender.com/repo/user/${userId}`);
                 const data = await repositories.json();
                 setUserRepo(data.result);
                 console.log(data);
@@ -28,7 +27,7 @@ function UserRepositories() {
 
 
     useEffect(() => {
-        fetch("http://localhost:3000/get-url")
+        fetch("https://vereon.onrender.com/get-url")
           .then(response => response.json())
           .then(data => setPresignedUrl(data.url))
           .catch(error => console.error("Error fetching pre-signed URL:", error));

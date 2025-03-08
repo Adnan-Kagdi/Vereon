@@ -30,7 +30,7 @@ const Login = () => {
         try {
             setLoading(true);
 
-            const res = await axios.post("http://localhost:3000/login", {
+            const res = await axios.post("https://vereon.onrender.com/login", {
                 email: email,
                 password: password
             })
@@ -48,7 +48,7 @@ const Login = () => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('userId');
                 setCurrUser("")
-                window.location.href = 'http://localhost:5173/login';
+                window.location.href = 'https://vereon-1.onrender.com/login';
             }, timeUntilExpiration);
 
             navigate("/");

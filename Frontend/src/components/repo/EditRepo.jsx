@@ -28,7 +28,7 @@ const EditRepo = () => {
     const handleSubmit = async (e) => {
         setLoading(true);
         e.preventDefault();
-        const res = await axios.put(`http://localhost:3000/repo/update/${id}`, {
+        const res = await axios.put(`https://vereon.onrender.com/repo/update/${id}`, {
             name: repoName,
             description: repoDiscription,
             visibility: repoVisibility
@@ -41,7 +41,7 @@ const EditRepo = () => {
 
     useEffect(() => {
         const getUser = async () => {
-            const res = await axios.get(`http://localhost:3000/userProfile/${repoOwner}`);
+            const res = await axios.get(`https://vereon.onrender.com/userProfile/${repoOwner}`);
             const username = res.data.username
             setUsername(username)
         }

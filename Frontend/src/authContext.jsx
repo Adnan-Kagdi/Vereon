@@ -8,7 +8,6 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
     const [currUser, setCurrUser] = useState(null);
-    const [username, setUsername] = useState("");
 
     useEffect(() => {
         const user = localStorage.getItem("userId")

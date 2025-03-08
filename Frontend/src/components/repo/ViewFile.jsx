@@ -24,7 +24,7 @@ const StyledViewFiles = () => {
 
   const fetchRepo = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/repo/${id}`);
+      const response = await axios.get(`https://vereon.onrender.com/repo/${id}`);
       setRepoOwner(response.data.result[0].owner._id);
       console.log(response.data.result[0].owner._id);
     } catch (error) {
@@ -34,7 +34,7 @@ const StyledViewFiles = () => {
 
   const fetchFiles = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/repo/${id}/files`);
+      const response = await axios.get(`https://vereon.onrender.com/repo/${id}/files`);
       setFiles(response.data || []);
       response.data.forEach(file => fetchFileContent(file._id));
     } catch (error) {
@@ -44,7 +44,7 @@ const StyledViewFiles = () => {
 
   const fetchFileContent = async (fileId) => {
     try {
-      const response = await axios.get(`http://localhost:3000/file/${fileId}/content`);
+      const response = await axios.get(`https://vereon.onrender.com/file/${fileId}/content`);
       setFileContents(prev => ({ ...prev, [fileId]: response.data }));
     } catch (error) {
       console.error("Error fetching file content:", error);
@@ -144,7 +144,6 @@ const StyledViewFiles = () => {
                     position: "absolute",
                     top: "10px",
                     right: "10px",
-                    // backgroundColor: "#fff",
                     color: "rgb(0,0,0, 0.9)",
                     border: "none",
                     cursor: "pointer",
