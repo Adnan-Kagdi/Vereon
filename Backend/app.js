@@ -125,29 +125,7 @@ async function startServer() {
 
     db.once("open", async () => {
         console.log("CRUD operations called");
-        // CRUD operations
     });
-
-    // app.get("/get-url", async (req, res) => {
-    //     try {
-    //         const s3 = new AWS.S3({
-    //             region: "ap-south-1",
-    //             signatureVersion: "v4",
-    //         });
-    //         const params = {
-    //             Bucket: "mygithubbuccket",
-    //             Key: "commits/d4101be8-5774-4354-b001-f2178ebaca9f/hello.txt",
-    //             Expires: 3600,
-    //         };
-
-    //         const presignedUrl = await s3.getSignedUrlPromise("getObject", params);
-
-    //         // Return JSON response
-    //         res.json({ url: presignedUrl });
-    //     } catch (error) {
-    //         res.status(500).json({ error: "Error generating pre-signed URL" });
-    //     }
-    // });
 
     httpServer.listen(Port, () => {
         console.log(`Server is running on port ${Port}`);
