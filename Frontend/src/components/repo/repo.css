@@ -1,0 +1,21 @@
+.edRepo-div input {
+    margin: 1.8rem 0 2rem 0 !important;
+}
+
+.edRepo-div input::placeholder {
+    color: rgba(255, 255, 255, 0.396);
+    font-size: 1.2rem;
+}
+
+/* .repo-backdrop {
+    color: grey !important;
+} */
+
+.icon-link {
+    text-decoration: none;
+    color: grey;
+}
+
+.Fltg-btn {
+    margin-right: 41.5rem !important;
+}

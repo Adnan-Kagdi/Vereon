@@ -1,0 +1,163 @@
+.profile-page-wrapper {
+  display: flex;
+  min-height: 35vh;
+  color: whitesmoke;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem;
+  /* flex-wrap: wrap; */
+}
+
+.user-profile-section {
+  width: 20rem;
+  margin-top: 3.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-repo-section {
+  margin: 0px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-name {
+  /* width: 250px; */
+  margin: 10px 20px 10px 10px;
+  /* margin: 10px auto; */
+}
+
+.profile-image {
+  margin: 10px auto;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128, 0.191);
+}
+
+.follow-btn {
+  background-color: rgba(128, 128, 128, 0.162);
+  width: 250px;
+  margin: 10px auto;
+  height: 40px;
+  border-radius: 10px;
+  color: whitesmoke;
+  border: none;
+}
+
+.follow-btn:hover {
+  background-color: rgba(128, 128, 128, 0.3);
+  transition: background-color 0.17s ease-in-out
+}
+
+.follower {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  height: 30px;
+  gap: 10px;
+  margin: 10px auto;
+}
+
+.repo-card-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.repo {
+  border: 0.5px solid grey;
+  border-radius: 10px;
+  width: 400px;
+  height: 210px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.repo-name {
+  cursor: pointer;
+  color: #408ced;
+  font-size: 20px;
+}
+
+.description {
+  color: grey;
+  font-size: 15px;
+}
+
+.profile-link {
+  color: rgba(255, 255, 255, 0.445);
+  text-decoration: none;
+  cursor: pointers;
+  margin-right: 5rem;
+}
+
+.profile-link:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#logout:hover {
+  border: 1px solid white;
+}
+
+.HeatMapProfile {
+  width: 35rem;
+}
+
+.graph-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.inst-pre {
+  background-color: rgba(128, 128, 128, 0.306);
+  width:fit-content;
+  color: white;
+  padding: 5px;
+  border-radius: 7px;
+  margin-top: 7px;
+  font-size: 1.2rem;
+}
+
+.detail-div li{
+  font-size: 1.2rem;
+}
+
+.detail-home{
+  color: grey;
+  text-decoration: none;
+}
+
+.detail-home:hover{
+  color: rgba(255, 255, 255, 0.639)
+}
+
+@media screen and (max-width: 750px) {
+  .repo {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .user-profile-section {
+    margin: auto;
+  }
+
+  .profile-page-wrapper {
+    display: block;
+  }
+
+  .profile-h2 {
+    width: 52vh;
+  }
+
+}

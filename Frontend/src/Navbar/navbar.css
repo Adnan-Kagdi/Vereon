@@ -1,0 +1,37 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.add-repo {
+  background-color: black !important;
+}
+
+.add-repo-btn {
+  font-size: 2rem !important;
+}
+
+.create-repo-btn{
+  color: rgb(255, 255, 255) !important;
+}
+
+.repo-cnBtn{
+  /* color: rgba(255, 255, 255, 0.516) !important; */
+  color: rgba(158, 158, 158, 0.871) !important;
+}
+
+.repo-dialog {
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.109);
+}
+
+.repo-dialogCont {
+  background-color: rgba(41, 38, 38, 0.896) !important;
+  /* border: none; */
+  font-size: 1rem !important;
+  color: rgba(255, 255, 255, 0.622) !important;
+}

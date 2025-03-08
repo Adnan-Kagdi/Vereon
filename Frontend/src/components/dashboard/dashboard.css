@@ -1,0 +1,80 @@
+body {
+    background-color: black;
+}
+
+.repo-cont {
+    display: flex !important;
+    margin-top: 2rem;
+    background-color: black !important;
+    border: 1px solid rgba(128, 128, 128, 0.356);
+    height: 9.5rem;
+    width: 45%;
+}
+
+.repo-cont:hover {
+    border: 1px solid rgba(255, 255, 255, 0.512)
+}
+
+.repo-cont-des {
+    color: rgba(128, 128, 128, 0.69);
+    margin-top: 10px !important;
+}
+
+.repo-cont-vis {
+    border: 1px solid rgba(255, 255, 255, 0.297);
+    font-size: 0.85rem;
+    color: white;
+    border-radius: 10px;
+    width: 3.5rem;
+    height: 2rem;
+    padding: 5px 0 5px 7.7px;
+    margin-top: 1.8rem;
+}
+
+.repo-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.569);
+}
+
+.repo-link:hover {
+    color: white;
+}
+
+.repo-boxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.empty-repo {
+    color: rgba(169, 169, 200, 0.4);
+    text-align: center;
+}
+
+.empty-repo-h3 {
+    text-decoration: none;
+    color: grey;
+    font-size: 1.4rem;
+}
+
+.empty-add {
+    font-size: 3rem !important;
+    color: rgba(0, 0, 0, 0.8)
+}
+
+.empty-fab {
+    height: 4rem !important;
+    width: 4rem !important;
+}
+
+.empty-fab{
+    margin-top: 0.6rem !important;
+}
+
+.empty-repo-link:hover {
+    .empty-add {
+        color: white;
+    }
+    .empty-fab {
+        background-color: black !important;
+    }
+}
