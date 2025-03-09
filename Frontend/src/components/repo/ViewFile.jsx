@@ -46,6 +46,7 @@ const StyledViewFiles = () => {
     try {
       const response = await axios.get(`https://vereon.onrender.com/file/${fileId}/content`);
       setFileContents(prev => ({ ...prev, [fileId]: response.data }));
+      console.log(response.data);
     } catch (error) {
       console.error("Error fetching file content:", error);
     }
