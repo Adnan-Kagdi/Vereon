@@ -19,3 +19,9 @@
 .Fltg-btn {
     margin-right: 41.5rem !important;
 }
+
+@media(max-width: 768px) {
+    .Fltg-btn {
+        margin-right: 9rem !important;
+    }
+}   
