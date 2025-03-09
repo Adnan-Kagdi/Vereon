@@ -52,6 +52,11 @@ export const getFileContent = async (req, res) => {
         };
         console.log("S3 Key:", file.filepath);
 
+        s3.listObjectsV2({ Bucket: "mygithubbuccket" }, (err, data) => {
+            if (err) console.error("S3 List Error:", err);
+            else console.log("S3 Files:", data);
+        });
+
         try {
             const s3File = await s3.getObject(params).promise();
             const fileContent = s3File.Body.toString("utf-8");
