@@ -1,9 +1,8 @@
 import express from "express";
-import AWS from "aws-sdk"
 import cors from "cors"
 import dotenv from "dotenv"
 import { Content } from "../models/fileContentModel.js";
-import { s3, S3_BUCKET } from "../config/aws-config.js";
+import { s3 } from "../config/aws-config.js";
 
 const app = express();
 
@@ -51,14 +50,17 @@ export const getFileContent = async (req, res) => {
             Bucket: "mygithubbuccket",
             Key: file.filepath, // Filepath from MongoDB (e.g., "commits/uuid/file.js")
         };
+        console.log("S3 Key:", file.filepath);
 
-        // Get file from S3
-        const s3File = await s3.getObject(params).promise();
+        try {
+            const s3File = await s3.getObject(params).promise();
+            const fileContent = s3File.Body.toString("utf-8");
+            res.json({ filename: file.filename, content: fileContent });
+        } catch (err) {
+            console.error("Error fetching from S3:", err);
+            res.status(500).json({ message: "Failed to fetch file content" });
+        }
 
-        // Convert Buffer to string for text-based files
-        const fileContent = s3File.Body.toString("utf-8");
-
-        res.json({ filename: file.filename, content: fileContent });
     } catch (error) {
         console.error("Error fetching file content:", error);
         res.status(500).json({ message: "Failed to fetch file content" });
