@@ -18,14 +18,14 @@ export default function FloatingBtn({ id }) {
 
 
   const actions = [
-    { icon: <Link to={`https://vereon-1.onrender.com/repo/update/${id}`} className='icon-link'><EditIcon /></Link>, name: 'Edit' },
-    { icon: <Link to={`https://vereon-1.onrender.com/repo/delete/${id}`} className='icon-link'><DeleteIcon /></Link>, name: 'Delete' },
-    { icon: <Link to="/" className='icon-link'><HomeIcon /></Link>, name: 'Home' },
+    { icon: <Link to={`https://vereon-1.onrender.com/repo/update/${id}`} className='icon-link'><EditIcon /></Link>, name: <span style={{color: "black"}}>Edit</span> },
+    { icon: <Link to={`https://vereon-1.onrender.com/repo/delete/${id}`} className='icon-link'><DeleteIcon /></Link>, name: <span style={{color: "black"}}>Delete</span> },
+    { icon: <Link to="/" className='icon-link'><HomeIcon /></Link>, name: <span style={{color: "black"}}>Home</span> },
   ];
 
   return (
     <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
-      <Backdrop open={open} />
+      <Backdrop open={open}/>
       <SpeedDial
         ariaLabel="SpeedDial tooltip example"
         sx={{
