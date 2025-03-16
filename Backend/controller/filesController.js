@@ -3,6 +3,7 @@ import cors from "cors"
 import dotenv from "dotenv"
 import { Content } from "../models/fileContentModel.js";
 import { s3 } from "../config/aws-config.js";
+import mongoose from "mongoose";
 
 const app = express();
 
@@ -40,6 +41,12 @@ export const getRepoFiles = async (req, res) => {
 export const getFileContent = async (req, res) => {
     try {
         const { fileId } = req.params;
+        console.log("Requested File ID:", fileId);
+
+        if (!fileId) {
+            console.error("Missing fileId in request.");
+            return res.status(400).json({ message: "fileId is required" });
+        }
 
         // Fetch file metadata from MongoDB
         const file = await Content.findById(fileId);
@@ -47,10 +54,12 @@ export const getFileContent = async (req, res) => {
             console.error("File not found:", fileId);
             return res.status(404).json({ message: "File not found" });
         }
+        console.log("file from MongoDB:", file);
+
         // Extract bucket path
         const params = {
             Bucket: "mygithubbuccket",
-            Key: file.filepath, // Filepath from MongoDB (e.g., "commits/uuid/file.js")
+            Key: decodeURIComponent(file.filepath), // Filepath from MongoDB (e.g., "commits/uuid/file.js")
         };
         console.log("S3 Key:", file.filepath);
 
