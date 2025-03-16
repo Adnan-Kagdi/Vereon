@@ -48,7 +48,7 @@ const StyledViewFiles = () => {
       setFileContents(prev => ({ ...prev, [fileId]: response.data }));
       console.log(response.data);
     } catch (error) {
-      console.error("Error fetching file content:", error);
+      console.error("Error fetching file content:", error.message);
     }
   };
 

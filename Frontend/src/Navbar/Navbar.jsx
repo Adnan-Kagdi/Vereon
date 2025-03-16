@@ -45,7 +45,6 @@ const Navbar = () => {
                 <Typography variant="h5" sx={{ flexGrow: 1 }} className="ms-2">
                     {username}
                 </Typography>
-
                 <CreateRepoNav />
 
                 <PopupState variant="popover" popupId="demo-popup-menu">
