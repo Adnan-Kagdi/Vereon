@@ -90,7 +90,7 @@ async function startServer() {
     app.use(bodyParser.json());
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
-    app.use(cors({ origin: "https://vereon-1.onrender.com" }));
+    app.use(cors({ origin: "*" }));
 
     app.use("/", mainRouter);
 
