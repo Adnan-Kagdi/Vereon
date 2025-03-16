@@ -43,8 +43,10 @@ export const getFileContent = async (req, res) => {
 
         // Fetch file metadata from MongoDB
         const file = await Content.findById(fileId);
-        if (!file) return res.status(404).json({ message: "File not found" });
-
+        if (!file) {
+            console.error("File not found:", fileId);
+            return res.status(404).json({ message: "File not found" });
+        }
         // Extract bucket path
         const params = {
             Bucket: "mygithubbuccket",
@@ -53,8 +55,11 @@ export const getFileContent = async (req, res) => {
         console.log("S3 Key:", file.filepath);
 
         s3.listObjectsV2({ Bucket: "mygithubbuccket" }, (err, data) => {
-            if (err) console.error("S3 List Error:", err);
-            else console.log("S3 Files:", data);
+            if (err) {
+                console.error("S3 List Error:", err);
+            } else {
+                console.log("S3 Files:", data);
+            }
         });
 
         try {
@@ -62,7 +67,7 @@ export const getFileContent = async (req, res) => {
             const fileContent = s3File.Body.toString("utf-8");
             res.json({ filename: file.filename, content: fileContent });
         } catch (err) {
-            console.error("Error fetching from S3:", err);
+            console.error("Error fetching from S3:", err.message);
             res.status(500).json({ message: "Failed to fetch file content" });
         }
 
