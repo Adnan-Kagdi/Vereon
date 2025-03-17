@@ -154,7 +154,6 @@ const StyledViewFiles = () => {
                 >
                   <SaveAltSharpIcon style={{ color: "white", fontSize: "1.6rem" }} />
                 </span>
-
                 <div
                   onClick={() => copyToClipboard(fileContents[file._id]?.content, file)}
                   style={{
@@ -170,7 +169,6 @@ const StyledViewFiles = () => {
                 >
                   {copiedFile === file ? "Copied!" : "Copy"}
                 </div>
-
                 <pre style={{
                   whiteSpace: "pre-wrap",
                   wordWrap: "break-word",

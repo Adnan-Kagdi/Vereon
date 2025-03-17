@@ -119,8 +119,8 @@ function Dashboard() {
 
                         <h1
                             className={repositories.length == 0 ? "d-none" : "ms-4"}
-                            style={{color: "#FBFBFB"}}
-                            >Dashboard</h1>
+                            style={{ color: "#FBFBFB" }}
+                        >Dashboard</h1>
                         <div className="repo-boxes">
                             {repositories.map((repo, index) => (
                                 <Card key={index} className="repo-cont ms-4">
@@ -128,7 +128,7 @@ function Dashboard() {
 
                                         <Typography variant="h5" className="repo-cont-name">
                                             {
-                                                !repo.visibility && repo.owner === userId ? (
+                                                !repo.visibility ? (
                                                     <div>
                                                         <span onClick={handleClick} className="repo-link">{repo.name}</span>
                                                         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
@@ -151,7 +151,6 @@ function Dashboard() {
                                             }
 
                                         </Typography>
-
                                         <Typography variant="body2" className="repo-cont-des">{repo.description}</Typography>
                                         <p className="repo-cont-vis">{repo.visibility ? "Public" : "Private"}</p>
                                     </CardContent>

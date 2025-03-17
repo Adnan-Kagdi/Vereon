@@ -20,6 +20,11 @@
     margin-right: 41.5rem !important;
 }
 
+.repo-cont-empty{
+    color: white !important;
+    margin-bottom: 4rem !important;
+}
+
 @media(max-width: 768px) {
     .Fltg-btn {
         margin-right: 9rem !important;
