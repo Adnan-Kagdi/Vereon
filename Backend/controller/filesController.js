@@ -62,6 +62,9 @@ export const getFileContent = async (req, res) => {
             Key: decodeURIComponent(file.filepath), // Filepath from MongoDB (e.g., "commits/uuid/file.js")
         };
         console.log("S3 Key:", file.filepath);
+        console.log("🔍 Checking S3 Fetch Params:", params);
+        
+        console.log(`Expected S3 URL: https://mygithubbuccket.s3.amazonaws.com/${params.Key}`);
 
         s3.listObjectsV2({ Bucket: "mygithubbuccket" }, (err, data) => {
             if (err) {
