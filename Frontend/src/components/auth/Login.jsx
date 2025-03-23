@@ -84,8 +84,8 @@ const Login = () => {
 
                 <div className="login-box">
                     <div className={!validate ? "d-none" : "mb-3"}>
-                        <Alert severity="error" onClose={handleClosingAlert} 
-                        style={{borderRadius: "30px"}}>
+                        <Alert severity="error" onClose={handleClosingAlert}
+                            style={{ borderRadius: "30px" }}>
                             Both fields are mendatory buddy!
                         </Alert>
                     </div>

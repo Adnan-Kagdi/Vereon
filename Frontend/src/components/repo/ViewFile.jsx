@@ -24,7 +24,9 @@ const StyledViewFiles = () => {
 
   const fetchRepo = async () => {
     try {
-      const response = await axios.get(`https://vereon.onrender.com/repo/${id}`);
+      const response = await axios.get(`https://vereon.onrender.com/repo/${id}`,
+        {headers: { "Content-Type": "application/json" }}
+      );
       setRepoOwner(response.data.result[0].owner._id);
       console.log(response.data.result[0].owner._id);
     } catch (error) {
