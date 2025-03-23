@@ -42,9 +42,7 @@ const Navbar = () => {
             }}>
             <Toolbar>
                 <Link to="/"><img src="/logo.svg" /></Link>
-                <Typography variant="h5" sx={{ flexGrow: 1 }} className="ms-2">
-                    {username}
-                </Typography>
+                <h3>{username}</h3>
                 <CreateRepoNav />
 
                 <PopupState variant="popover" popupId="demo-popup-menu">
