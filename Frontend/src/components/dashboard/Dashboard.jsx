@@ -91,13 +91,6 @@ function Dashboard() {
     return (
         <>
             <Navbar />
-            {
-                repoLoading ? (
-                    <Box sx={{ width: '100%' }}>
-                        <LinearProgress />
-                    </Box>
-                ) : null
-            }
             <Box sx={{ display: "flex", color: "white", minHeight: "100vh" }} style={{ backgroundColor: "black" }}>
                 <Drawer variant="permanent" className="sidebar-box" sx={{
                     width: 290, flexShrink: 0, "& .MuiDrawer-paper":
@@ -123,8 +116,14 @@ function Dashboard() {
                 <div className="d-flex" style={{ width: "100%" }}>
                     <Box sx={{ flexGrow: 1, padding: 3 }}>
                         <Toolbar />
-
-                        <div className={repositories.length !== 0 && repoLoading ? "d-none" : "empty-repo"}>
+                        {
+                            repoLoading ? (
+                                <Box sx={{ width: '100%' }}>
+                                    <LinearProgress />
+                                </Box>
+                            ) : null
+                        }
+                        <div className={repositories.length === 0 && !repoLoading ? "empty-repo" : "d-none"}>
                             <h1>You are not created a single Repository!</h1>
                             <h3 className="empty-repo-h3">Create your first Repo</h3>
                             <Link to="/createRepo" className="empty-repo-link">
