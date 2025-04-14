@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Toolbar, Typography, InputBase, Drawer, List, ListItem, ListItemIcon, ListItemText, Box, Card, CardContent, Snackbar, Alert, Fab } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
+import LinearProgress from '@mui/material/LinearProgress';
 import Navbar from "../../Navbar/Navbar"
 import "./dashboard.css"
 import { Link } from "react-router-dom";
@@ -9,6 +10,8 @@ function Dashboard() {
     const [repositories, setRepositories] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     const [suggestedRepositories, setSuggestedRepositories] = useState([]);
+    const [repoLoading, setRepoLoading] = useState(true);
+    const [allRepoLoading, setAllRepoLoading] = useState(true);
 
     const [open, setOpen] = useState(false);
 
@@ -21,11 +24,15 @@ function Dashboard() {
             const fetchRepositories = async () => {
                 const response = await fetch(`https://vereon.onrender.com/repo/user/${userId}`);
                 const data = await response.json();
-                console.log(data);
 
                 if (data.result) {
                     setRepositories(data.result);
                     console.log(data.result);
+                    setRepoLoading(false);
+                    if (response.status !== 200) {
+                        throw new Error(data.message);
+                    }
+                    console.log(data);
                 } else {
                     setRepositories([]);
                 }
@@ -34,11 +41,14 @@ function Dashboard() {
 
             const fetchAllRepositories = async () => {
                 const response = await fetch("https://vereon.onrender.com/repo/all");
-
                 const data = await response.json();
 
                 if (data.result) {
                     setSuggestedRepositories(data.result);
+                    setAllRepoLoading(false);
+                    if (response.status !== 200) {
+                        throw new Error(data.message);
+                    }
                 } else {
                     setSuggestedRepositories([]);
                 }
@@ -82,6 +92,13 @@ function Dashboard() {
         <>
             <Navbar />
             <Box sx={{ display: "flex", color: "white", minHeight: "100vh" }} style={{ backgroundColor: "black" }}>
+                {
+                    repoLoading ? (
+                        <Box sx={{ width: '100%' }}>
+                            <LinearProgress />
+                        </Box>
+                    ) : null
+                }
                 <Drawer variant="permanent" className="sidebar-box" sx={{
                     width: 290, flexShrink: 0, "& .MuiDrawer-paper":
                         { width: 290, boxSizing: "border-box", background: "rgba(128, 128, 128, 0.1)", color: "white", borderRightColor: "rgba(128, 128, 128, 0.1)" }
@@ -107,7 +124,7 @@ function Dashboard() {
                     <Box sx={{ flexGrow: 1, padding: 3 }}>
                         <Toolbar />
 
-                        <div className={repositories.length !== 0 ? "d-none" : "empty-repo"}>
+                        <div className={repositories.length !== 0 && !repoLoading ? "d-none" : "empty-repo"}>
                             <h1>You are not created a single Repository!</h1>
                             <h3 className="empty-repo-h3">Create your first Repo</h3>
                             <Link to="/createRepo" className="empty-repo-link">
