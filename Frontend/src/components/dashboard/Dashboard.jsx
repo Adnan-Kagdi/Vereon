@@ -135,7 +135,7 @@ function Dashboard() {
 
                         <div className={ !repoLoading ? "empty-repo" : "d-none"}>
                             <h1>Wait a Second!</h1>
-                            <h3 className="empty-repo-h3">Wait a Second!</h3>
+                            <h3 className="empty-repo-h3">Wait a Second....</h3>
                             <Link to="/createRepo" className="empty-repo-link">
                                 <Fab color="black" aria-label="add" className="empty-fab">
                                     <AddIcon className="empty-add" />
