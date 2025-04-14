@@ -4,6 +4,7 @@ import { useAuth } from "../../authContext";
 
 import { PageHeader, Box, Button } from "@primer/react"
 import Alert from '@mui/material/Alert';
+import CircularProgress from '@mui/material/CircularProgress';
 import "./auth.css";
 
 import { Link } from "react-router-dom";
@@ -137,7 +138,7 @@ const Signup = () => {
                         disabled={loading}
                         onClick={handleSignup}
                     >
-                        {loading ? "Loading..."
+                        {loading ? <span className="d-flex">&nbsp; &nbsp;<h4 style={{ fontWeight: "10", fontSize: "1.2rem" }} className="ms-3">Signup</h4>&nbsp; &nbsp;<CircularProgress disableShrink size={"20px"}/></span>
                             : <h4 style={{ fontWeight: "10", fontSize: "1.2rem" }}>Signup</h4>}
                     </Button>
                 </div>

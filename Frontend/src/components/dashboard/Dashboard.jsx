@@ -103,6 +103,13 @@ function Dashboard() {
                             onChange={(e) => setSearchQuery(e.target.value)}
                             placeholder="Search Vereon"
                             sx={{ background: "#30363d", padding: "5px 10px", color: "white", width: "100%", margin: "0" }} />
+                        {
+                            allRepoLoading ? (
+                                <Box sx={{ width: '100%' }}>
+                                    <LinearProgress />
+                                </Box>
+                            ) : null
+                        }
                         <List>
                             {suggestedRepositories.map((repo, index) => (
                                 <ListItem button key={index}>
@@ -133,14 +140,8 @@ function Dashboard() {
                             </Link>
                         </div>
 
-                        <div className={ !repoLoading ? "empty-repo" : "d-none"}>
-                            <h1>Wait a Second!</h1>
-                            <h3 className="empty-repo-h3">Wait a Second....</h3>
-                            <Link to="/createRepo" className="empty-repo-link">
-                                <Fab color="black" aria-label="add" className="empty-fab">
-                                    <AddIcon className="empty-add" />
-                                </Fab>
-                            </Link>
+                        <div className={repoLoading ? "empty-repo" : "d-none"}>
+                            <h1>Wait a Second...</h1>
                         </div>
 
                         <h1
