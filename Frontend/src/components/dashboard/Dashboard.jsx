@@ -35,6 +35,7 @@ function Dashboard() {
                     console.log(data);
                 } else {
                     setRepositories([]);
+                    setRepoLoading(false);
                 }
 
             }
@@ -51,6 +52,7 @@ function Dashboard() {
                     }
                 } else {
                     setSuggestedRepositories([]);
+                    setAllRepoLoading(false);
                 }
 
             }
@@ -105,7 +107,7 @@ function Dashboard() {
                             sx={{ background: "#30363d", padding: "5px 10px", color: "white", width: "100%", margin: "0" }} />
                         {
                             allRepoLoading ? (
-                                <Box sx={{ width: '100%' }}>
+                                <Box sx={{ width: '100%' }} className="allRepo-loading">
                                     <LinearProgress />
                                 </Box>
                             ) : null
@@ -124,7 +126,7 @@ function Dashboard() {
                     <Box sx={{ flexGrow: 1, padding: 3 }}>
                         {
                             repoLoading ? (
-                                <Box sx={{ width: '107.3%', marginTop: "2.58rem", marginLeft: "-4rem" }}>
+                                <Box className="repo-loading">
                                     <LinearProgress />
                                 </Box>
                             ) : null

@@ -70,6 +70,12 @@ body {
     margin-top: 0.6rem !important;
 }
 
+.repo-loading{
+    width: 107.3%;
+    margin-top: 2.425rem;
+    margin-left: -4rem;
+}
+
 .empty-repo-link:hover {
     .empty-add {
         color: white;

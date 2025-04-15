@@ -135,6 +135,10 @@ button:focus-visible {
     width: 20rem !important;
     height: 11rem !important;
   }
+
+  .repo-loading{
+    display: none;
+  }
 }
 
 /* CreateRepo */
