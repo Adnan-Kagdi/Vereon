@@ -122,14 +122,14 @@ function Dashboard() {
                 </Drawer>
                 <div className="d-flex" style={{ width: "100%" }}>
                     <Box sx={{ flexGrow: 1, padding: 3 }}>
-                        <Toolbar />
                         {
                             repoLoading ? (
-                                <Box sx={{ width: '100%' }}>
+                                <Box sx={{ width: '100%', marginTop: "4rem" }}>
                                     <LinearProgress />
                                 </Box>
                             ) : null
                         }
+                        <Toolbar />
                         <div className={repoLoading ? "empty-repo" : "d-none"}>
                             <h1>Wait a Second...</h1>
                         </div>
