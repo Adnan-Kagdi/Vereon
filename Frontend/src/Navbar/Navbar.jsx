@@ -27,7 +27,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const getUser = async () => {
-            const res = await axios.get(`http://localhost:3000/userProfile/${userId}`);
+            const res = await axios.get(`https://vereon.onrender.com/userProfile/${userId}`);
             const username = res.data.username
             setUsername(username)
         }
