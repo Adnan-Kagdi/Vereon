@@ -122,7 +122,7 @@ const Login = () => {
                         disabled={loading}
                         onClick={handleLogin}
                     >
-                        {loading ? <span className="d-flex">&nbsp; &nbsp;<h4 style={{ fontWeight: "10", fontSize: "1.2rem" }} className="ms-3">Login</h4>&nbsp; &nbsp;<CircularProgress disableShrink size={"20px"}/></span>
+                        {loading ? <span className="d-flex">&nbsp; &nbsp;<h4 style={{ fontWeight: "10", fontSize: "1.2rem" }} className="ms-3">Login</h4>&nbsp; &nbsp;<CircularProgress disableShrink size={"20px"} /></span>
                             : <h4 style={{ fontWeight: "10", fontSize: "1.2rem" }}>Login</h4>}
                     </Button>
                 </div>
@@ -133,6 +133,17 @@ const Login = () => {
                         <Link to="/signup" style={{ color: "rgba(136, 200, 230, 0.9)", textDecoration: "none" }}>
                             &nbsp; Create an account
                         </Link>
+                    </p>
+                </div>
+            </div>
+            <div style={{ marginTop: "7rem" }} className="login-box-wrapper">
+                <div className="pass-box" style={{width: "26rem"}}>
+                    <span style={{ opacity: "0.7" }}><strong>Email</strong> : &nbsp;random249@gmail.com </span>
+                    <span style={{ opacity: "0.7" }}><strong>Password</strong> : &nbsp;random1423</span>
+                </div>
+                <div className="mt-6 text-sm text-center text-gray-500">
+                    <p className="mt-2 text-xs text-gray-400 italic">
+                        Use the above credentials to explore the platform.
                     </p>
                 </div>
             </div>

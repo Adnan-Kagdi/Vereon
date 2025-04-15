@@ -121,15 +121,19 @@ function Dashboard() {
                     </Box>
                 </Drawer>
                 <div className="d-flex" style={{ width: "100%" }}>
-                    {
-                        repoLoading ? (
-                            <Box sx={{ width: '100%' }}>
-                                <LinearProgress />
-                            </Box>
-                        ) : null
-                    }
                     <Box sx={{ flexGrow: 1, padding: 3 }}>
+                        {
+                            repoLoading ? (
+                                <Box sx={{ width: '100%' }}>
+                                    <LinearProgress />
+                                </Box>
+                            ) : null
+                        }
                         <Toolbar />
+                        <div className={repoLoading ? "empty-repo" : "d-none"}>
+                            <h1>Wait a Second...</h1>
+                        </div>
+
                         <div className={repositories.length === 0 && !repoLoading ? "empty-repo" : "d-none"}>
                             <h1>You are not created a single Repository!</h1>
                             <h3 className="empty-repo-h3">Create your first Repo</h3>
@@ -138,10 +142,6 @@ function Dashboard() {
                                     <AddIcon className="empty-add" />
                                 </Fab>
                             </Link>
-                        </div>
-
-                        <div className={repoLoading ? "empty-repo" : "d-none"}>
-                            <h1>Wait a Second...</h1>
                         </div>
 
                         <h1
